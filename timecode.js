@@ -164,7 +164,7 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($, NumberField) {
 
       try {
         if (!value.length) {
-          if (that.field.optional === true) {
+          if (field.optional === true) {
             // Field is optional and does not have a value, nothing more to validate
             return;
           }
