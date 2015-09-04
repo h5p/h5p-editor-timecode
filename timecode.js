@@ -50,7 +50,7 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($, NumberField) {
      *
      * @private
      */
-    var createHtml = function () {
+    var createHtml = function () {
       var input = H5PEditor.createText(params, 15);
       var label = H5PEditor.createLabel(field, input);
       return H5PEditor.createItem(field.type, label, field.description);
@@ -155,7 +155,7 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($, NumberField) {
      *
      * @return {*} valid value or false
      */
-    self.validate = function () {
+    self.validate = function () {
       // Retrieve timecode
       var value = H5P.trim($input.val());
 
@@ -195,9 +195,9 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($, NumberField) {
     /**
      * Remove field.
      *
-     * @public
+     * @public
      */
-    self.remove = function () {
+    self.remove = function () {
       $item.remove();
     };
 
