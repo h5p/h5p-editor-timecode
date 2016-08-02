@@ -129,7 +129,7 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($, NumberField) {
       j = j - 1;
       if (values[j] !== undefined) {
         var hours = parseInt(values[j]);
-        if (!values[j].match(allowedChars) || values[j].length !== (minutes + '').length || hours < 1) {
+        if (!values[j].match(allowedChars) || values[j].length !== (hours + '').length || hours < 1) {
           throw t('invalidTime', {':property': field.name});
         }
         // Convert to seconds and add to value
