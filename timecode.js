@@ -18,6 +18,8 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($, NumberField) {
     // Global elements
     var $item, $input, $errors;
 
+    self.field = field;
+
     /**
      * Initialize timecode fields.
      *
@@ -149,6 +151,9 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($, NumberField) {
       $item.appendTo($wrapper);
     };
 
+    self.getDomElement = function () {
+      return $item;
+    };
 
     /**
      * Validate field.
