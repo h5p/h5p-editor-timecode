@@ -66,34 +66,10 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($, NumberField) {
      * @returns {String}
      */
     var toTimecode = function (seconds) {
-      var time = '';
-      var minutes = Math.floor(seconds / 60);
-      var hours = Math.floor(minutes / 60);
-
-      minutes = minutes % 60;
-      seconds = Math.floor(seconds % 60);
-
-      if (hours !== 0) {
-        time += hours + ':';
-
-        if (minutes < 10) {
-          // Leading zero
-          time += '0';
-        }
-      }
-
-      time += minutes + ':';
-
-      if (seconds < 10) {
-        // Leading zero
-        time += '0';
-      }
-
-      time += seconds;
-
-      return time;
+      // H5P.Timer works with milliseconds
+      var timecode = H5P.Timer.toTimecode(seconds * 1000);
+      return timecode.substring(0, timecode.lastIndexOf('.'));
     };
-
 
     /**
      * Converts seconds to timecode.
@@ -103,42 +79,9 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($, NumberField) {
      * @returns {String}
      */
     var toSeconds = function (timecode) {
-      // Split time format and check that we have between one and two colons.
-      var values = timecode.split(':', 4);
-      if (values.length !== 2 && values.length !== 3) {
-        throw t('invalidTime', {':property': field.name});
-      }
-
-      // Validate seconds and add to value
-      var allowedChars = new RegExp('^[0-9]+$');
-      var j = values.length - 1;
-
-      var seconds = parseInt(values[j]);
-      if (!values[j].match(allowedChars) || values[j].length !== 2 || seconds > 59) {
-        throw t('invalidTime', {':property': field.name});
-      }
-
-      // Validate minutes
-      j = j - 1;
-      var minutes = parseInt(values[j]);
-      if (!values[j].match(allowedChars) || (values[j - 1] !== undefined && values[j].length !== 2) || (values[j - 1] === undefined && values[j].length !== (minutes + '').length) || minutes > 59) {
-        throw t('invalidTime', {':property': field.name});
-      }
-      // Convert to seconds and add to value
-      seconds += minutes * 60;
-
-      // Validate hours
-      j = j - 1;
-      if (values[j] !== undefined) {
-        var hours = parseInt(values[j]);
-        if (!values[j].match(allowedChars) || values[j].length !== (hours + '').length || hours < 1) {
-          throw t('invalidTime', {':property': field.name});
-        }
-        // Convert to seconds and add to value
-        seconds += hours * 3600;
-      }
-
-      return seconds;
+      // H5P.Timer works with milliseconds
+      var milliseconds = H5P.Timer.toMilliseconds(timecode);
+      return Math.round(milliseconds / 1000);
     };
 
     /**
