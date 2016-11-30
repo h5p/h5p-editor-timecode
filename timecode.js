@@ -72,7 +72,7 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($, NumberField) {
     };
 
     /**
-     * Converts seconds to timecode.
+     * Converts timecode to seconds.
      *
      * @private
      * @param {Number} seconds
