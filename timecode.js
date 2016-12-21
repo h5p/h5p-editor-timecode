@@ -55,7 +55,7 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($, NumberField) {
     var createHtml = function () {
       var input = H5PEditor.createText(params, 15);
       var label = H5PEditor.createLabel(field);
-      return H5PEditor.createItem(field.type, label + input, field.description);
+      return H5PEditor.createItem(field.type, label, field.description, input);
     };
 
     /**
