@@ -1,7 +1,7 @@
 /**
  * @namespace H5PEditor
  */
-H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($, NumberField) {
+H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($) {
 
   /**
    * Converts timecodes to seconds.
@@ -239,4 +239,4 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($, NumberField) {
   };
 
   return Timecode;
-})(H5P.jQuery, H5PEditor.Number);
+})(H5P.jQuery);
