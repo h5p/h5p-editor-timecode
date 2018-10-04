@@ -231,12 +231,5 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($) {
     return H5PEditor.t('core', key, placeholders);
   };
 
-  // Default english translations
-  H5PEditor.language['H5PEditor.Timecode'] = {
-    libraryStrings: {
-      invalidTime: '":property" contains an invalid timecode.'
-    }
-  };
-
   return Timecode;
 })(H5P.jQuery);
