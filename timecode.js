@@ -1,7 +1,7 @@
 /**
  * @namespace H5PEditor
  */
-H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($, NumberField) {
+H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($) {
 
   /**
    * Converts timecodes to seconds.
@@ -231,12 +231,5 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($, NumberField) {
     return H5PEditor.t('core', key, placeholders);
   };
 
-  // Default english translations
-  H5PEditor.language['H5PEditor.Timecode'] = {
-    libraryStrings: {
-      invalidTime: '":property" contains an invalid timecode.'
-    }
-  };
-
   return Timecode;
-})(H5P.jQuery, H5PEditor.Number);
+})(H5P.jQuery);
