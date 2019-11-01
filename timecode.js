@@ -53,7 +53,9 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($) {
      * @private
      */
     var createHtml = function () {
-      return H5PEditor.createFieldMarkup(field, H5PEditor.createText(params, 15));
+      const id = H5PEditor.getNextFieldId(self.field);
+      const descriptionId = (self.field.description !== undefined ? H5PEditor.getDescriptionId(id) : undefined)
+      return H5PEditor.createFieldMarkup(field, H5PEditor.createText(params, 15, undefined, id, descriptionId), id);
     };
 
     /**
