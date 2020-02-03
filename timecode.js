@@ -71,7 +71,7 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($) {
       var hours = Math.floor(minutes / 60);
 
       minutes = minutes % 60;
-      seconds = Math.floor(seconds % 60);
+      seconds = Math.floor((seconds % 60) * 1000) / 1000;
 
       if (hours !== 0) {
         time += hours + ':';
@@ -114,7 +114,7 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($) {
       var j = values.length - 1;
 
       var seconds = parseInt(values[j]);
-      if (!values[j].match(allowedChars) || values[j].length !== 2 || seconds > 59) {
+      if (!values[j].match(/^[0-9]{2}$|\.[0-9]{1,3}$/) || seconds > 59 || seconds < 0) {
         throw t('invalidTime', {':property': field.name});
       }
 
