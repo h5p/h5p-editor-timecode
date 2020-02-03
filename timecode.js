@@ -113,7 +113,7 @@ H5PEditor.widgets.timecode = H5PEditor.Timecode = (function ($) {
       var allowedChars = new RegExp('^[0-9]+$');
       var j = values.length - 1;
 
-      var seconds = parseInt(values[j]);
+      var seconds = parseFloat(values[j]);
       if (!values[j].match(/^[0-9]{2}$|\.[0-9]{1,3}$/) || seconds >= 60 || seconds < 0) {
         throw t('invalidTime', {':property': field.name});
       }
