@@ -1,1 +1,5 @@
-{}
+{
+  "libraryStrings": {
+    "invalidTime": "\":property\" contains an invalid timecode."
+  }
+}
